@@ -3,7 +3,9 @@ import os
 
 image_directory = 'images/'
 image_counter = 1
-cap = pyshark.FileCapture('security-footage-1648933966395.pcap', display_filter='frame.len gt 10000')
+pcap_file = 'security-footage-1648933966395.pcap' #Change this to absolute path or copy the pcap into the working directory and leave it the same
+
+cap = pyshark.FileCapture(pcap_file, display_filter='frame.len gt 10000')
 
 if not os.path.exists(image_directory):  #Make a directory to store the extracted images
 	print(f"Making directory: {image_directory}")
